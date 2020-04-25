@@ -9,3 +9,4 @@ describe ApplicationController do
       expect(last_response.body).to include("Welcome to Neighborly Deals")
     end
   end
+end
