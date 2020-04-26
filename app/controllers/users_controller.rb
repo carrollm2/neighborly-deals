@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
   
   get '/signup' do
-
     if Helpers.is_logged_in?(session)
-      redirect '/welcome'
+      redirect '/requests'
     else
       erb :'users/signup'
     end
@@ -14,20 +13,20 @@ class UsersController < ApplicationController
   post '/signup' do
 
     if params[:username] == "" or params[:email] == "" or params[:password] == ""
-      redirect 'users/signup'
+      redirect '/signup'
     end
 
     user = User.create(params)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/welcome"
+      redirect '/requests'
 	  end
   end
 
 
   get '/login' do
     if Helpers.is_logged_in?(session)
-      redirect '/welcome'
+      redirect '/requests'
     else
       erb :'/users/login'
     end
@@ -41,13 +40,20 @@ class UsersController < ApplicationController
 
 	  if user && user.authenticate(params[:password])
 	    session[:user_id] = user.id
-	    redirect '/welcome'
+	    redirect '/requests'
 	  else
-	    redirect '/users/login'
+	    redirect '/login'
 	  end
   end  
   
   
-  
+  get '/logout' do
+    if Helpers.is_logged_in?(session)
+      session.clear
+      redirect '/login'
+    else
+      redirect '/'
+    end
+  end  
   
 end
