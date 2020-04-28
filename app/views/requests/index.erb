@@ -1,4 +1,14 @@
 <p>Welcome, </p>
 
+<% Request.all.each do |request| %>
+  <div class="requests">
+    <h2><%= request.category %></h2>
+    <h2><%= request.description %></h2>
+    <h2><%= request.rtype %></h2>
+    <h2><%= request.user.email %></h2>
+  </div><br>
+<% end %>
+
+
 <a href="/requests/new">Create Request</a> | <a href="/logout">Log Out</a>
 
