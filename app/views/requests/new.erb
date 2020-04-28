@@ -1,0 +1,24 @@
+<% if Helpers.is_logged_in?(session) %>
+<%= @error %>
+
+  <h3>Create Request</h3>
+
+  <form action='/requests' method="post">
+    Category:
+    <input type="text" name="category"><br><br>
+    
+    Description:
+    <input type="text" name="desciption"><br><br>    
+    
+    Type:
+    <input type="text" name="type"><br><br>     
+    
+    Create Your Request:
+
+    <input type="submit" name="submit" id="submit">
+
+  </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to Make Requests </h1>
+  <% end %>
