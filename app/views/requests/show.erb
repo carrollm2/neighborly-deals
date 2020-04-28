@@ -1,0 +1,10 @@
+<h1><%=@request.category%></h1>
+<h1><%=@request.description%></h1>
+<h1><%=@request.rtype%></h1>
+
+<a href="/requests/<%= @request.id %>/edit">Edit Request</a>
+
+<form method="post" action="/tweets/<%= @tweet.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Tweet">
+</form>
