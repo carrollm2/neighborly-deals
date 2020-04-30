@@ -1,0 +1,26 @@
+<h2>Edit Request</h2>
+
+<h1>Update Request Category</h1>
+
+<h2>Edits for <%= @user_request.category %></h2>
+
+<form action="/requests/<%= @user_request.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Edit the Request's Category:</label>
+  <input type="text" id="category" name="request[category]" value ="<%=@user_request.category%>">
+  <br>
+  <br>
+  <label>Edit the Request's Description:</label>
+  <input type="text" id="description" name="request[description]" value ="<%=@user_request.description%>">
+  <br>
+  <br>
+  <label>Edit the Request's Type:</label>
+  <input type="text" id="type" name="request[type]" value ="<%=@user_request.rtype%>">  
+  
+
+  <br><br>
+
+  <input type="submit" value="Edit Request">
+
+<a class="button" href="/requests">Requests</a>
+<a class="button" href="/">Home</a>
