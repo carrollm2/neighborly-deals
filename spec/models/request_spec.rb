@@ -10,7 +10,6 @@ describe 'Request' do
   end
   
   it 'belongs to a user' do
-    binding.pry
     expect(@request.user.username).to eq("msimpson")
   end
 
