@@ -1,11 +1,11 @@
 <p>Welcome, </p>
 
-<% Request.all.each do |request| %>
+<% Request.all.each do |user_request| %>
   <div class="requests">
-    <h2><%= request.category %></h2>
-    <h2><%= request.description %></h2>
-    <h2><%= request.rtype %></h2>
-    <h2><%= request.user.email %></h2>
+    <h2><%= user_request.category %></h2>
+    <h2><%= user_request.description %></h2>
+    <h2><%= user_request.rtype %></h2>
+    <h2><%= user_request.user.email %></h2>
   </div><br>
 <% end %>
 
