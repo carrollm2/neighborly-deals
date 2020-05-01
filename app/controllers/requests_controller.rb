@@ -23,7 +23,7 @@ class RequestsController < ApplicationController
       if params["category"]["name"] == "" || params["description"] == "" || params["type"] == ""
         redirect 'requests/new'
       else
-        @user_request = Request.create(category: params["category"], description: params["description"], rtype: params["type"], user_id: session[:user_id])
+        @user_request = Request.create(category: params["category"]["name"], description: params["description"], rtype: params["type"], user_id: session[:user_id])
         erb :'requests/index'
       end
     end
