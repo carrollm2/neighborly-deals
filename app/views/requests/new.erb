@@ -5,7 +5,11 @@
 
   <form action='/requests' method="post">
     Category:
-    <input type="text" name="category"><br><br>
+
+    <%Category.all.each do |category|%>
+      <br><input type="checkbox" id="category_<%= category.id %>" name="category[name]" value="<%=category.id %>"><%=category.name%>
+    <%end%>
+    <br></br    
     
     Description:
     <input type="text" name="description"><br><br>    
