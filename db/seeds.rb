@@ -11,6 +11,21 @@
 #   User.create(user_hash)
 # end
 
+category_list = {
+    "grocery" => {
+    },
+    "fitness" => {
+    },
+    "automotive" => {
+    },
+    "other" => { 
+    }
+  }
 
+category_list.each do |name, category_hash|
+  p = Category.new
+  p.name = name
+  p.save
+end
 
 
