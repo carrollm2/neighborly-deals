@@ -8,5 +8,6 @@ end
 use Rack::MethodOverride
 use UsersController
 use RequestsController
+use CategoriesController
 
 run ApplicationController
