@@ -7,7 +7,10 @@
 <form action="/requests/<%= @user_request.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Edit the Request's Category:</label>
-  <input type="text" id="category" name="request[category]" value ="<%=@user_request.category%>">
+  <%Category.all.each do |category|%>
+    <br><input type="checkbox" id="<%=category.id%>" name="request[category]" value="<%=category.name %>" <%='checked' if @user_request.category == category%>><%=category.name%>
+  <%end%>  
+  
   <br>
   <br>
   <label>Edit the Request's Description:</label>
@@ -15,12 +18,14 @@
   <br>
   <br>
   <label>Edit the Request's Type:</label>
-  <input type="text" id="type" name="request[type]" value ="<%=@user_request.rtype%>">  
+  <%RequestType.all.each do |request_type|%>
+    <br><input type="checkbox" id="<%=request_type.id%>" name="request[type]" value="<%=request_type.request_type %>" <%='checked' if @user_request.rtype == request_type%>><%=request_type.request_type%>
+  <%end%>    
   
-
   <br><br>
 
   <input type="submit" value="Edit Request">
+  
+  <br><br>
 
-<a class="button" href="/requests">Requests</a>
-<a class="button" href="/">Home</a>
+  <a href="/">Home</a> | <a href="/requests">Back to All Requests</a> | <a href="/logout">Log Out</a>   
