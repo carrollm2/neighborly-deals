@@ -15,7 +15,10 @@
     <input type="text" name="description"><br><br>    
     
     Type:
-    <input type="text" name="type"><br><br>     
+    <%RequestType.all.each do |request_type|%>
+      <br><input type="checkbox" id="request_type_<%= request_type.id %>" name="request[type]" value="<%=request_type.request_type %>"><%=request_type.request_type%>
+    <%end%>
+    <br></br>      
     
     Create Your Request:
 
