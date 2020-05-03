@@ -61,7 +61,7 @@ class RequestsController < ApplicationController
         @user_request.update(category: params["request"]["category"])
         @user_request.update(description: params["request"]["description"])
         @user_request.update(rtype: params["request"]["type"])
-        redirect "requests/#{@user_request.id}/edit"
+        redirect "requests/#{@user_request.id}"
       end
     end
   end
