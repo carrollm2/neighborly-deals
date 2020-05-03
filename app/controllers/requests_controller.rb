@@ -20,10 +20,10 @@ class RequestsController < ApplicationController
   
   post '/requests' do
     if Helpers.is_logged_in?(session)
-      if params["category"]["name"] == "" || params["description"] == "" || params["type"] == ""
+      if params["category"]["name"] == "" || params["description"] == "" || params["request"]["type"] == ""
         redirect 'requests/new'
       else
-        @user_request = Request.create(category: params["category"]["name"], description: params["description"], rtype: params["type"], user_id: session[:user_id])
+        @user_request = Request.create(category: params["category"]["name"], description: params["description"], rtype: params["request"]["type"], user_id: session[:user_id])
         erb :'requests/index'
       end
     end
