@@ -1,9 +1,28 @@
 
 <h1> Details of Request Id <%=@user_request.id%></h1>
 
-<h2> Category | Description | Request Type | Contact Email </h2>
-<h3>-------------------------------------------------------</h3>
-<h2><%=@user_request.category%> | <%=@user_request.description%> | <%=@user_request.rtype%></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Request Type</th>
+      <th>Contact Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+     <td> <%= @user_request.category  %> </td>
+     <td> <%= @user_request.description  %> </td>
+     <td> <%= @user_request.rtype  %> </td>
+     <td> <%= @user_request.user.email  %> </td>
+    </tr>
+ </tbody>
+</table>
+
+<br><br>
 
 
 <form action="/requests/<%= @user_request.id%>/edit">
