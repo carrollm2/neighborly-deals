@@ -23,8 +23,8 @@ request_type_list = {
     }
   }
 
-request_type_list.each do |type, request_type_hash|
+request_type_list.each do |description, request_type_hash|
   p = RequestType.new
-  p.request_type = type
+  p.description = description
   p.save
 end

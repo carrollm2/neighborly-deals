@@ -19,7 +19,7 @@
   <br>
   <label>Edit the Request's Type:</label>
   <%RequestType.all.each do |request_type|%>
-    <br><input type="checkbox" id="<%=request_type.id%>" name="request[type]" value="<%=request_type.request_type %>" <%='checked' if @user_request.rtype == request_type%>><%=request_type.request_type%>
+    <br><input type="checkbox" id="<%=request_type.id%>" name="request[type]" value="<%=request_type.description %>" <%='checked' if @user_request.rtype == request_type%>><%=request_type.description%>
   <%end%>    
   
   <br><br>

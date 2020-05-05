@@ -1,8 +1,8 @@
 <h2>All Request Types</h2>
 
-<% @request_types.each do |request_type| %>
+<% RequestType.all.each do |request_type| %>
   <div class="request_types">
-    <h2>Request Type: <%= request_type.type %></h2>
+    <h2>Request Type: <%= request_type.description %></h2>
   </div><br>
 <% end %>
 

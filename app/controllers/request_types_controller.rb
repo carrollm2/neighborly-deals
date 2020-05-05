@@ -1,7 +1,6 @@
 class RequestTypesController < ApplicationController
 
   get '/request_types' do
-    @request_types = RequestType.all
     erb :'/request_types/index'
   end
 
