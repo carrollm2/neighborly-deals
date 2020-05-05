@@ -2,6 +2,7 @@ class RequestsController < ApplicationController
 
   get '/requests' do
     if Helpers.is_logged_in?(session)
+      @user_name = User.find_by(id: session[:user_id]).username      
       erb :'requests/index'
     else
       redirect '/login'
@@ -23,6 +24,7 @@ class RequestsController < ApplicationController
       if params["category"]["name"] == "" || params["description"] == "" || params["request"]["type"] == ""
         redirect 'requests/new'
       else
+        @user_name = User.find_by(id: session[:user_id]).username
         @user_request = Request.create(category: params["category"]["name"], description: params["description"], rtype: params["request"]["type"], user_id: session[:user_id])
         erb :'requests/index'
       end
