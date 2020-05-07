@@ -21,10 +21,12 @@ Specs:
 - [x] Ensure that users can't modify content created by other users
   Users need to be logged in to delete of their requests and cannot modify requests of others
 
-- [ ] Include user input validations
+- [x] Include user input validations
+User needs to be logged in to create new request
 
-- [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
-- 
+- [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
+  Flash messages for poste and path routes
+ 
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
