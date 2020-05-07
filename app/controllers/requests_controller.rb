@@ -26,7 +26,9 @@ class RequestsController < ApplicationController
       else
         @user_name = User.find_by(id: session[:user_id]).username
         @user_request = Request.create(category: params["category"]["name"], description: params["description"], rtype: params["request"]["type"], user_id: session[:user_id])
-        erb :'requests/index'
+        
+        flash[:message] = "Successfully created request."
+        redirect to "/requests/#{@user_request.id}"
       end
     end
   end  
