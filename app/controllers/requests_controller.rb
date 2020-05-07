@@ -65,6 +65,9 @@ class RequestsController < ApplicationController
         @user_request.update(category: params["request"]["category"])
         @user_request.update(description: params["request"]["description"])
         @user_request.update(rtype: params["request"]["type"])
+        
+        flash[:message] = "Successfully updated request."
+        
         redirect "requests/#{@user_request.id}"
       end
     end
