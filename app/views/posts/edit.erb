@@ -1,0 +1,31 @@
+<h2>Edit Post</h2>
+
+<h1>Update Post Category</h1>
+
+<h2>Edits for <%= @user_post.category %></h2>
+
+<form action="/posts/<%= @user_post.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>Edit the Post's Category:</label>
+  <%Category.all.each do |category|%>
+    <br><input type="checkbox" id="<%=category.id%>" name="post[category]" value="<%=category.name %>" <%='checked' if @user_post.category == category%>><%=category.name%>
+  <%end%>  
+  
+  <br>
+  <br>
+  <label>Edit the Post's Description:</label>
+  <input type="text" id="description" name="post[description]" value ="<%=@user_post.description%>">
+  <br>
+  <br>
+  <label>Edit the Post's Type:</label>
+  <%PostType.all.each do |post_type|%>
+    <br><input type="checkbox" id="<%=post_type.id%>" name="post[type]" value="<%=post_type.description %>" <%='checked' if @user_post.rtype == post_type%>><%=post_type.description%>
+  <%end%>    
+  
+  <br><br>
+
+  <input type="submit" value="Edit Post">
+  
+  <br><br>
+
+  <a href="/">Home</a> | <a href="/posts">Back to All Posts</a> | <a href="/logout">Log Out</a>   

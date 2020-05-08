@@ -1,0 +1,49 @@
+<% if !!flash[:message] %>
+<%= flash[:message] %>
+<% end %>
+
+<% if !!flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+
+
+<h1> Details of Post Id <%=@user_post.id%></h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Post Type</th>
+      <th>Contact Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+     <td> <%= @user_post.category  %> </td>
+     <td> <%= @user_post.description  %> </td>
+     <td> <%= @user_post.rtype  %> </td>
+     <td> <%= @user_post.user.email  %> </td>
+    </tr>
+ </tbody>
+</table>
+
+<br><br>
+
+
+<form action="/posts/<%= @user_post.id%>/edit">
+    <input type="submit" value="Edit Post" />
+</form>
+
+<br>
+
+<form method="post" action="/posts/<%= @user_post.id %>">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Post">
+</form>
+
+<br>
+
+<a href="/posts">See All Posts</a>

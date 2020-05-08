@@ -1,0 +1,29 @@
+<h3>Hi <%=@user_name %>, here are all your neighborly deals!</h3>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Post Type</th>
+      <th>Contact Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+       <%  Post.all.each do |user_post| %>
+        <tr>
+         <td> <%= user_post.category  %> </td>
+         <td> <%= user_post.description  %> </td>
+         <td> <%= user_post.rtype  %> </td>
+         <td> <%= user_post.user.email  %> </td>
+        </tr>
+       <% end %>
+
+ </tbody>
+</table>
+
+
+<a href="/posts/new">Create Post</a> | <a href="/logout">Log Out</a>
+

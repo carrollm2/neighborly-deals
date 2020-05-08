@@ -1,0 +1,35 @@
+<% if Helpers.is_logged_in?(session) %>
+<%= @error %>
+
+  <h3>Create a Post</h3>
+
+  <form action='/posts' method="post">
+    Category:
+
+    <%Category.all.each do |category|%>
+      <br><input type="checkbox" id="category_<%= category.id %>" name="category[name]" value="<%=category.name %>"><%=category.name%>
+    <%end%>
+    <br></br>    
+    
+    Description:
+    <input type="text" name="description"><br><br>    
+    
+    Type:
+    <%PostType.all.each do |post_type|%>
+      <br><input type="checkbox" id="post_type_<%= post_type.id %>" name="post[type]" value="<%=post_type.description %>"><%=post_type.description%>
+    <%end%>
+    <br></br>      
+    
+    Create Your Post:
+
+    <input type="submit" name="submit" id="submit">
+
+    <br><br>    
+    
+    <a href="/posts">Back to All Posts</a> | <a href="/logout">Log Out</a>    
+
+  </form>
+
+  <% else %>
+      <h1> You Must Be Logged in to Make Posts </h1>
+  <% end %>
