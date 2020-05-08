@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   get '/signup' do
     if Helpers.is_logged_in?(session)
-      redirect '/requests'
+      redirect '/posts'
     else
       erb :'users/signup'
     end
@@ -19,14 +19,14 @@ class UsersController < ApplicationController
     user = User.create(params)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect '/requests'
+      redirect '/posts'
 	  end
   end
 
 
   get '/login' do
     if Helpers.is_logged_in?(session)
-      redirect '/requests'
+      redirect '/posts'
     else
       erb :'/users/login'
     end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
 	  if user && user.authenticate(params[:password])
 	    session[:user_id] = user.id
-	    redirect '/requests'
+	    redirect '/posts'
 	  else
 	    redirect '/login'
 	  end
