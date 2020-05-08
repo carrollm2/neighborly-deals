@@ -1,0 +1,10 @@
+<h2>All Post Types</h2>
+
+<% PostType.all.each do |post_type| %>
+  <div class="post_types">
+    <h2>Post Type: <%= post_type.description %></h2>
+  </div><br>
+<% end %>
+
+<a class="button" href="/post_types">Post Types</a>
+<a class="button" href="/">Home</a>
