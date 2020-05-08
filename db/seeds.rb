@@ -16,15 +16,15 @@ category_list.each do |name, category_hash|
 end
 
 
-request_type_list = {
+post_type_list = {
     "request" => {
     },
     "give away" => {
     }
   }
 
-request_type_list.each do |description, request_type_hash|
-  p = RequestType.new
+post_type_list.each do |description, post_type_hash|
+  p = PostType.new
   p.description = description
   p.save
 end
