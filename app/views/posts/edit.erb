@@ -19,7 +19,7 @@
   <br>
   <label>Edit the Post's Type:</label>
   <%PostType.all.each do |post_type|%>
-    <br><input type="checkbox" id="<%=post_type.id%>" name="post[type]" value="<%=post_type.description %>" <%='checked' if @user_post.rtype == post_type%>><%=post_type.description%>
+    <br><input type="checkbox" id="<%=post_type.id%>" name="post_type[id]" value="<%=post_type.id %>" <%='checked' if @user_post.post_type == post_type%>><%=post_type.description%>
   <%end%>    
   
   <br><br>
