@@ -8,7 +8,7 @@
   <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Edit the Post's Category:</label>
   <%Category.all.each do |category|%>
-    <br><input type="checkbox" id="<%=category.id%>" name="post[category]" value="<%=category.name %>" <%='checked' if @user_post.category == category%>><%=category.name%>
+    <br><input type="checkbox" id="<%=category.id%>" name="post[category_id]" value="<%=category.id %>" <%='checked' if @user_post.category_id == category.id%>><%=category.name%>
   <%end%>  
   
   <br>
