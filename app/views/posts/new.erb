@@ -16,7 +16,7 @@
     
     Type:
     <%PostType.all.each do |post_type|%>
-      <br><input type="checkbox" id="post_type_<%= post_type.id %>" name="post_type[id]" value="<%=post_type.description %>"><%=post_type.description%>
+      <br><input type="checkbox" id="post_type_<%= post_type.id %>" name="post_type[id]" value="<%=post_type.id %>"><%=post_type.description%>
     <%end%>
     <br></br>      
     
