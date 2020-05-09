@@ -10,8 +10,8 @@ class PostTypesController < ApplicationController
 
   post '/post_types' do
 
-    if !params["post"]["type"].empty?
-      PostType.find_or_create_by(params["post"]["type"])
+    if !params["post"]["description"].empty?
+      PostType.find_or_create_by(params["post"]["description"])
     end
 
     redirect to "/post_types"
