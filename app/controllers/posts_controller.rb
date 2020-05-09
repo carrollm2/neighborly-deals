@@ -25,7 +25,7 @@ class PostsController < ApplicationController
         redirect 'posts/new'
       else
         @user_name = User.find_by(id: session[:user_id]).username
-        @user_post = Post.create(category_id: params["category"]["id"], description: params["description"], post_type: params["post_type"]["id"], user_id: session[:user_id])
+        @user_post = Post.create(category_id: params["category"]["id"], description: params["description"], post_type_id: params["post_type"]["id"], user_id: session[:user_id])
         
         flash[:message] = "Successfully created post."
         redirect to "/posts/#{@user_post.id}"
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
     if Helpers.is_logged_in?(session)
       @user_post = Post.find_by(id: params[:id])
       @user = User.find_by(id: @user_post.user_id)
-      if @user.id == session[:user_id] && @user_post.category_id != "" && @user_post.description != "" && @user_post.post_type != ""
+      if @user.id == session[:user_id] && @user_post.category_id != "" && @user_post.description != "" && @user_post.post_type_id != ""
         erb :"posts/edit"
       end
     else
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
     if Helpers.is_logged_in?(session)
       @user_post = Post.find_by(id: params[:id])
       @user = User.find_by(id: @user_post.user_id)
-      if @user.id == session[:user_id] && @user_post.category_id != "" && @user_post.description != "" && @user_post.post_type != ""
+      if @user.id == session[:user_id] && @user_post.category_id != "" && @user_post.description != "" && @user_post.post_type_id != ""
         @user_post.update(category_id: params["post"]["category_id"])
         @user_post.update(description: params["post"]["description"])
         @user_post.update(post_type: params["post_type"]["id"])
