@@ -7,7 +7,7 @@
     Category:
 
     <%Category.all.each do |category|%>
-      <br><input type="checkbox" id="category_<%= category.id %>" name="category[name]" value="<%=category.name %>"><%=category.name%>
+      <br><input type="checkbox" id="category_<%= category.id %>" name="category[id]" value="<%=category.id %>"><%=category.name%>
     <%end%>
     <br></br>    
     
