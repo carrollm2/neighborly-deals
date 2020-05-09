@@ -64,7 +64,7 @@ class PostsController < ApplicationController
       if @user.id == session[:user_id] && @user_post.category_id != "" && @user_post.description != "" && @user_post.post_type_id != ""
         @user_post.update(category_id: params["post"]["category_id"])
         @user_post.update(description: params["post"]["description"])
-        @user_post.update(post_type: params["post_type"]["id"])
+        @user_post.update(post_type_id: params["post_type"]["id"])
         
         flash[:message] = "Successfully updated post."
         
