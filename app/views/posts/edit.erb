@@ -1,27 +1,29 @@
 <h3>Edits for Post ID <%= @user_post.id %></h3>
 
 <form action="/posts/<%= @user_post.id %>" method="POST">
-  <input id="hidden" type="hidden" name="_method" value="patch">
-  <label>Edit the Post's Category:</label>
-  <%Category.all.each do |category|%>
-    <br><input type="checkbox" id="<%=category.id%>" name="post[category_id]" value="<%=category.id %>" <%='checked' if @user_post.category_id == category.id%>><%=category.name%>
-  <%end%>  
-  
-  <br>
-  <br>
-  <label>Edit the Post's Description:</label>
-  <input type="text" id="description" name="post[description]" value ="<%=@user_post.description%>">
-  <br>
-  <br>
-  <label>Edit the Post's Type:</label>
-  <%PostType.all.each do |post_type|%>
-    <br><input type="checkbox" id="<%=post_type.id%>" name="post_type[id]" value="<%=post_type.id %>" <%='checked' if @user_post.post_type.id == post_type.id%>><%=post_type.description%>
-  <%end%>    
-  
+  <div class="new_post_menu">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <label>Edit the Post's Category:</label>
+    <%Category.all.each do |category|%>
+      <br><input type="checkbox" id="<%=category.id%>" name="post[category_id]" value="<%=category.id %>" <%='checked' if @user_post.category_id == category.id%>><%=category.name%>
+    <%end%>  
+    
+    <br>
+    <br>
+    <label>Edit the Post's Description:</label>
+    <input type="text" id="description" name="post[description]" value ="<%=@user_post.description%>">
+    <br>
+    <br>
+    <label>Edit the Post's Type:</label>
+    <%PostType.all.each do |post_type|%>
+      <br><input type="checkbox" id="<%=post_type.id%>" name="post_type[id]" value="<%=post_type.id %>" <%='checked' if @user_post.post_type.id == post_type.id%>><%=post_type.description%>
+    <%end%>    
+
+  </div>   
   <br><br>
 
   <input type="submit" value="Edit Post">
-  
+
   <br><br>
 
   <a href="/">Home</a> | <a href="/posts">Back to All Posts</a> | <a href="/logout">Log Out</a>   
