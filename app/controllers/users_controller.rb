@@ -12,11 +12,11 @@ class UsersController < ApplicationController
   
   post '/signup' do
     
-    if User.all.find_by(email: params[:email])
+    if User.all.find_by(email: params[:email]) || User.all.find_by(username: params[:username])
       redirect '/signup'
     end
 
-    if params[:username] == "" or params[:email] == "" or params[:password] == ""
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
       redirect '/signup'
     end
 
