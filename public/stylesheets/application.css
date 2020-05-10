@@ -1,6 +1,5 @@
   body {
-    background-color: darkblue;
-    color: #333;
+    background-color: #0066ff;
     font-family: Sans-Serif;
     line-height: 18px;
   }
@@ -19,7 +18,7 @@
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
-  }
+   }
 
   h3 {
     font-family: "Comic Sans MS", cursive, sans-serif;
@@ -38,10 +37,10 @@
   }
   
   td {
-    background-color: yellow;
+    background-color: lightblue;
     color: blue;
   }
-  
+
   a {
     color: white;
   }
