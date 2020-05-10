@@ -1,6 +1,4 @@
-<h2>Edit Post</h2>
-
-<h2>Edits for Post ID <%= @user_post.id %></h2>
+<h3>Edits for Post ID <%= @user_post.id %></h3>
 
 <form action="/posts/<%= @user_post.id %>" method="POST">
   <input id="hidden" type="hidden" name="_method" value="patch">
