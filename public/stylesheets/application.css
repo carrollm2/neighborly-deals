@@ -1,30 +1,35 @@
-  body {
-    background-color: #0066ff;
-    font-family: Sans-Serif;
-    line-height: 18px;
+  html { 
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://media.treehugger.com/assets/images/2018/12/neighborhood-view.jpg.860x0_q70_crop-scale.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
   
   h1 {
     font-family: "Comic Sans MS", cursive, sans-serif;
-    color: orange;
+    color: white;
     font-size: 36px;
     line-height: 54px;
+    margin:auto;
   }
 
   h2 {
     font-family: "Comic Sans MS", cursive, sans-serif;
-    color: orange;
+    color: white;
     border-bottom: 2px solid #ccc;
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
+    margin:auto;
    }
 
   h3 {
     font-family: "Comic Sans MS", cursive, sans-serif;
-    color: orange;
+    color: white;
     font-size: 18px;
     line-height: 36px;
+    margin:auto;
   }
   
   table, th, td {
@@ -43,4 +48,7 @@
 
   a {
     color: white;
+    font-weight: bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
   }
+  
