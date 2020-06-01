@@ -12,10 +12,12 @@ class UsersController < ApplicationController
   post '/signup' do
     
     if User.all.find_by(email: params[:email]) || User.all.find_by(username: params[:username])
+      flash[:signup] = "A user already exists with same username or email."
       redirect '/signup'
     end
 
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      flash[:signup] = "Username, Email and Password all need to be provided for successful signup."
       redirect '/signup'
     end
 
@@ -45,6 +47,7 @@ class UsersController < ApplicationController
 	    session[:user_id] = user.id
 	    redirect '/posts'
 	  else
+	    flash[:login] = "Please check username and password."
 	    redirect '/login'
 	  end
   end  
@@ -53,6 +56,7 @@ class UsersController < ApplicationController
   get '/logout' do
     if Helpers.is_logged_in?(session)
       session.clear
+      flash[:logout] = "Successfully logged out."
       redirect '/login'
     else
       redirect '/'
