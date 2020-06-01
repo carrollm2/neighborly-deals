@@ -6,7 +6,6 @@ class UsersController < ApplicationController
     else
       erb :'users/signup'
     end
-    
   end
   
   
@@ -22,10 +21,10 @@ class UsersController < ApplicationController
 
     user = User.create(params)
     
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect '/posts'
-	  end
+    session[:user_id] = user.id
+      
+    redirect '/posts'
+
   end
 
 
@@ -35,7 +34,6 @@ class UsersController < ApplicationController
     else
       erb :'/users/login'
     end
-
   end
 
 
