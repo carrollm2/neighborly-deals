@@ -1,10 +1,20 @@
 category_list = {
-    "grocery" => {
+    "furniture" => {
     },
     "fitness" => {
     },
     "automotive" => {
     },
+    "children toys" => {
+    },   
+    "entertainment" => {
+    },  
+    "books" => {
+    },    
+    "clothes" => {
+    }, 
+    "sports equipment" => {
+    },       
     "other" => { 
     }
   }
