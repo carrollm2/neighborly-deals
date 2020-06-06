@@ -4,7 +4,7 @@
 <% end %>
 </div>
 
-<h3> Details of Post Id <%=@user_post.id%></h3>
+<h3> Details of Post Id <%=@post.id%></h3>
 
 
 <table>
@@ -19,10 +19,10 @@
 
   <tbody>
     <tr>
-     <td> <%= @user_post.category.name  %> </td>
-     <td> <%= @user_post.description  %> </td>
-     <td> <%= @user_post.post_type.description  %> </td>
-     <td> <%= @user_post.user.email  %> </td>
+     <td> <%= @post.category.name  %> </td>
+     <td> <%= @post.description  %> </td>
+     <td> <%= @post.post_type.description  %> </td>
+     <td> <%= @post.user.email  %> </td>
     </tr>
  </tbody>
 </table>
@@ -30,13 +30,13 @@
 <br><br>
 
 
-<form action="/posts/<%= @user_post.id%>/edit">
+<form action="/posts/<%= @post.id%>/edit">
     <input type="submit" value="Edit Post" />
 </form>
 
 <br>
 
-<form method="post" action="/posts/<%= @user_post.id %>">
+<form method="post" action="/posts/<%= @post.id %>">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Post">
 </form>
