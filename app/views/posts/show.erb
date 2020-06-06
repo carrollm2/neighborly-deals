@@ -1,6 +1,8 @@
 <% if !!flash[:message] %>
-<%= flash[:message] %>
+<div class="flash_message">
+  <%= flash[:message] %>
 <% end %>
+</div>
 
 <h3> Details of Post Id <%=@user_post.id%></h3>
 
