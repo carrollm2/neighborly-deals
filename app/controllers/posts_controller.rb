@@ -47,8 +47,9 @@ class PostsController < ApplicationController
   get '/posts/:id/edit' do
     if Helpers.is_logged_in?(session)
       @post = Post.find_by(id: params[:id])
-      @user = User.find_by(id: @post.user_id)
-      if @user.id == session[:user_id] && @post.category_id != "" && @post.description != "" && @post.post_type_id != ""
+      @user = User.find_by(id: session[:user_id])
+
+      if @user.id == @post.user_id
         erb :"posts/edit"
       else
         flash[:message] = "Not authorized to edit post of other users."
@@ -81,6 +82,7 @@ class PostsController < ApplicationController
     if Helpers.is_logged_in?(session)
       @post = Post.find_by(id: params[:id])
       @user = User.find_by(id: @post.user_id)
+      
       if @user.id == session[:user_id]
         @post.delete
         redirect "/posts"
