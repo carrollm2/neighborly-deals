@@ -50,6 +50,9 @@ class PostsController < ApplicationController
       @user = User.find_by(id: @user_post.user_id)
       if @user.id == session[:user_id] && @user_post.category_id != "" && @user_post.description != "" && @user_post.post_type_id != ""
         erb :"posts/edit"
+      else
+        flash[:message] = "Not authorized to edit post of other users."
+        redirect '/posts'
       end
     else
       redirect '/login'
