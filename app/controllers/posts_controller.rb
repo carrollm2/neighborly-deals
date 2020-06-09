@@ -67,7 +67,7 @@ class PostsController < ApplicationController
     if Helpers.is_logged_in?(session)
       @post = Post.find_by(id: params[:id])
       @user = User.find_by(id: @post.user_id)
-      if @user.id == session[:user_id] && @post.category_id != "" && @post.description != "" && @post.post_type_id != ""
+      if @user.id == session[:user_id] && Helpers.is_valid_edit_form?(@post)
         @post.update(category_id: params["post"]["category_id"])
         @post.update(description: params["post"]["description"])
         @post.update(post_type_id: params["post_type"]["id"])
