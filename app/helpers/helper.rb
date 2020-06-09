@@ -8,5 +8,23 @@ class Helpers
   def self.is_logged_in?(session)
     !!session[:user_id]
   end
+  
+  
+  def self.is_valid_new_form?(params)
+    valid_fields = ["category", "description", "post_type"]
+    
+    valid_fields.each do | field |
+      if params[field].presence == false || params.keys.include?(field) == false
+        return false
+      end
+    end
+    
+    if params["description"].empty?
+      return false
+    end
+    
+    return true
+  end  
+  
 
 end
