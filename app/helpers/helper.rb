@@ -26,5 +26,9 @@ class Helpers
     return true
   end  
   
+  
+  def self.is_valid_edit_form?(p)
+    p.category_id != "" && p.description != "" && p.post_type_id != ""
+  end    
 
 end
