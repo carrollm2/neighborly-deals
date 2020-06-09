@@ -1,3 +1,10 @@
+<% if !!flash[:message] %>
+<div class="flash_message">
+  <%= flash[:message] %>
+<% end %>
+</div>
+
+
 <% if Helpers.is_logged_in?(session) %>
 <%= @error %>
 
