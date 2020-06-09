@@ -27,8 +27,12 @@ class Helpers
   end  
   
   
-  def self.is_valid_edit_form?(p)
-    p.category_id != "" && p.description != "" && p.post_type_id != ""
+  def self.is_valid_edit_form?(params)
+    if params["post"]["description"].empty?
+      return false
+    end 
+      
+    params["post"]["category_id"].presence && params["post"]["description"].presence && params["post_type"]["id"].presence  
   end    
 
 end
