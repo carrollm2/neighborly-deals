@@ -10,6 +10,11 @@ class Helpers
   end
   
   
+  def self.is_admin_logged_in?(session)
+    session[:user_id] == 1
+  end
+  
+  
   def self.is_valid_new_form?(params)
     valid_fields = ["category", "description", "post_type"]
     
