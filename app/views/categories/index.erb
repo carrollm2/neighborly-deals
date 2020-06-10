@@ -1,10 +1,9 @@
 <h2>All Categories</h2>
 
-<% @categories.each do |category| %>
+<% Category.all.each do |category| %>
   <div class="categories">
     <h2>Category Name: <%= category.name %></h2>
   </div><br>
 <% end %>
 
-<a class="button" href="/categories">Categories</a>
-<a class="button" href="/">Home</a>
+<a class="button" href="/categories">Categories</a> | <a class="button" href="/posts">Back to All Posts</a>
