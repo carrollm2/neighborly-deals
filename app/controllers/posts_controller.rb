@@ -24,10 +24,11 @@ class PostsController < ApplicationController
       
       if Helpers.is_valid_new_form?(params)
         @username = User.find_by(id: session[:user_id]).username
+        
         @post = Post.create(category_id: params["category"]["id"], description: params["description"], post_type_id: params["post_type"]["id"], user_id: session[:user_id])
         
         flash[:message] = "Successfully created post."
-        redirect to "/posts/#{@post.id}"
+        redirect "/posts/#{@post.id}"
       else
         flash[:message] = "Please populate all fields before submitting request."
         redirect 'posts/new'
