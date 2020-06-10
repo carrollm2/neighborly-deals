@@ -1,6 +1,8 @@
 <% if !!flash[:signup] %>
-<%= flash[:signup] %>
+<div class="flash_message">
+  <%= flash[:signup] %>
 <% end %>
+</div>
 
 <h3>Neighborly Deals Sign Up</h3>
 <form action="/signup" method="POST">
