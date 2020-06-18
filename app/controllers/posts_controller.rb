@@ -67,9 +67,8 @@ class PostsController < ApplicationController
   patch '/posts/:id' do
     if Helpers.is_logged_in?(session)
       @post = Post.find_by(id: params[:id])
-      current_user = Helpers.current_user(session)
 
-      if current_user.id == session[:user_id] && Helpers.is_valid_edit_form?(params)
+      if Helpers.is_valid_edit_form?(params)
         @post.update(category_id: params["post"]["category_id"])
         @post.update(description: params["post"]["description"])
         @post.update(post_type_id: params["post_type"]["id"])
@@ -89,11 +88,14 @@ class PostsController < ApplicationController
   delete '/posts/:id' do
     if Helpers.is_logged_in?(session)
       @post = Post.find_by(id: params[:id])
-      @user = User.find_by(id: @post.user_id)
+      current_user = Helpers.current_user(session)
       
-      if @user.id == session[:user_id]
+      if current_user.id == @post.user.id
         @post.delete
         redirect "/posts"
+      else
+        flash[:message] = "Unauthorized to remove posts of other users."
+        redirect "posts/#{@post.id}"
       end
     else
       redirect '/login'
